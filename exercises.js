@@ -87,12 +87,37 @@ function isfaly(array){
 
 // Put your answer below -------------------------
 
-function dist(myArray){
+// function dist(myArray){
 
+// }
+myArray = myArray.flat(2);
+
+// corrected
+
+function answer1(arr){
+    const result = {}; // create an empty object
+    for(let i=0; i< arr.length; i++){ // loop through the outter array
+        result[arr[i][0]]=arr[i][1]; // split each array into an object property
+    }
+    return result;
 }
 
-
-
+// other options
+function answer2(arr){
+    const result ={};
+    for(const index of arr){ // using for of function to loop through the array
+        result[index[0]]= index[1] // split the index value to bject property
+    }
+    return result;
+}
+// forEach 
+function answer2(arr){
+    const result ={};
+arr.forEach(function(ele){
+    result[[ele][0]]=ele[1];
+});
+return result;
+}
 
 
 
@@ -107,69 +132,19 @@ function dist(myArray){
 
 // Put your answer below -------------------------
 
-
-function arequal(array1, array2){
-    const arr1sum={};
-    const arr2sum={};
-     if(array1.length===array2.length){
-         
-         for(let i=0; i<array1.length; i++){
-             let arr1num = array1[i];
-             let arr2num = array2[i];
-             if(arr1sum[arr1num]==!undefined){
- 
-                 arr1sum[arr1num] += 1;
-             }
-             else {
-                 arr1sum[arr1num]=1;
-             }
-             if(arr2sum[arr2num]==!undefined){
- 
-                 arr2sum[arr2num] += 1;
-             }
-             else {
-                 arr2sum[arr2num]=1;
-             }
- 
-             console.log(i);
- 
-             
-         }
- 
-         console.log(arr1sum);
-         console.log(arr2sum);
-         
-         
-         for (const property in arr1sum){
-        let Ar1 = 0;
-        Ar1 += parseFloat(${property})* parseFloat(${arr1sum[property]});}
-
-        for (const property in arr2sum){
-            let Ar2 = 0;
-            Ar2 += parseFloat(property)* parseFloat(arr2sum[property]);}
-
-           console.log(Ar1, Ar2 ,'Arblock');
- 
- 
-     }
-
-    
-      if(Ar1 == Ar2){
-         return 'They are Equal';
- 
-     }
-     else{
-     return 'They are not Equal'
-     }
- 
-     
- }
+//from class
 
 
 
+function removeDuplicate(arr){
+    const result = [];
+    for(let i =0; i< arr.lenght; i++){ //lop through the array
+        if(!result.includes(arr[i])){  // check if the new array already includes the number at arr[i]
+            result.push(arr[i]); //push the number
+        }
+    }
 
-
-
+}
 
 
 // -----------------------------------------------
@@ -186,69 +161,95 @@ function arequal(array1, array2){
 
 
 function arequal(array1, array2){
-    const arr1sum={};
-    const arr2sum={};
-     if(array1.length===array2.length){
-         
-         for(let i=0; i<array1.length; i++){
-             let arr1num = array1[i];
-             let arr2num = array2[i];
-             if(arr1sum[arr1num]==!undefined){
- 
-                 arr1sum[arr1num] += 1;
-             }
-             else {
-                 arr1sum[arr1num]=1;
-             }
-             if(arr2sum[arr2num]==!undefined){
- 
-                 arr2sum[arr2num] += 1;
-             }
-             else {
-                 arr2sum[arr2num]=1;
-             }
- 
-             console.log(i);
- 
-             
-         }
- 
-         console.log(arr1sum);
-         console.log(arr2sum);
-         
-         
-         for (const property in arr1sum){
-        let Ar1 = 0;
-        Ar1 += property*arr1sum[property];}
+    // const arr1sum={};
+    // const arr2sum={};
+    if(array1.length===array2.length){
+        return false;
+    }
+    array1.sort();
+    array2.sort();
 
-        for (const property in arr2sum){
-            let Ar2 = 0;
-            Ar2 += property*arr2sum[property];}
+    for(let i=0; i < array1.length; i++) {
+        if(array1[i] !== array2[i]) {
+            return false;
+        }
+    }
+
+    return true;
+
+}
+         
+    // for(let i=0; i<array1.length; i++){
+    //     let arr1num = array1[i];
+    //     let arr2num = array2[i];
+    //     if(arr1sum[arr1num]==!undefined){
+
+    //         arr1sum[arr1num] += 1;
+    //     }
+    //     else {
+    //         arr1sum[arr1num]=1;
+    //     }
+    //     if(arr2sum[arr2num]==!undefined){
+
+    //         arr2sum[arr2num] += 1;
+    //     }
+    //     else {
+    //         arr2sum[arr2num]=1;
+    //     }
+
+    //     console.log(i);
+
+        
+    // }
+ 
+    //      console.log(arr1sum);
+    //      console.log(arr2sum);
+         
+         
+    //      for (const property in arr1sum){
+    //     let Ar1 = 0;
+    //     Ar1 += property*arr1sum[property];}
+
+    //     for (const property in arr2sum){
+    //         let Ar2 = 0;
+    //         Ar2 += property*arr2sum[property];}
             
  
  
-     }
+    //  }
 
      
 
         
      
-      if(Ar1 == Ar2){
-         return 'They are Equal';
+    //   if(Ar1 == Ar2){
+    //      return 'They are Equal';
  
  
-     }
-     else{
-     return 'They are not Equal'
-     }
+    //  }
+    //  else{
+    //  return 'They are not Equal'
+    //  }
  
  
      
- }
 
 
+// answer from class
 
+  function compareArrays(arr1, arr2){
+    if(arr1.length !== arr2.length){// check for eqality in length
+        return false;
+    }
+    arr1.sort();//sort the arrays
+    arr2.sort();
+    for(let i=0; i<arr1.lenght; i++){ //check the sorted arrays for equality of value at the sorted positions
+        if(arr1[i]!== arr2[i]){ // if the values are not equalt exit the loop
+            return false;
 
+        }
+    }
+  }
 
 
 
@@ -274,7 +275,7 @@ function arequal(array1, array2){
 // Put your answer below -------------------------
 
 
-
+function 
 
 
 

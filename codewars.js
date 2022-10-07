@@ -15,6 +15,8 @@ var number=function(array){
       return box;
     }
   };
+// class solution
+
 
 
 
@@ -32,6 +34,28 @@ const arr = N => {
  return R;
 
 }
+
+/// class solution
+function arr(num){
+  if(num === undefined){
+    return[];
+  }
+  const result = [];
+  for(let i=0; i<num; i++){
+    result.push(i)
+  }
+  return result;
+}
+
+// more methods
+
+function arr(num){
+  return num === undefined ? [] : [...Array(num).keys()];
+}
+
+// that will check for condition of num is undefined and retur an empty array. When 
+// use .key it will use a spred opperator and 
+
               
 
 
@@ -62,6 +86,15 @@ function flyBy(lamps, drone){
 // # 4
 // Get the mean of an array
 // https://www.codewars.com/kata/563e320cee5dddcf77000158/train/javascript
+function getAverage(marks){
+  //TODO : calculate the downward rounded average of the marks array
+  let markstotal=0;
+  for(let i=0; i< marks.length; i++){
+    markstotal = markstotal+marks[i];
+  }
+  
+  return Math.floor(markstotal/marks.length);
+}
 
 
 
@@ -69,3 +102,7 @@ function flyBy(lamps, drone){
 // #5
 // THE SOUL OF WIT: REVERSE AN ARRAY
 // https://www.codewars.com/kata/59b81886460387d8fc000043
+
+///from one on one
+
+reverse=a=>a.map(a.pop,[...a])
